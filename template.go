@@ -32,7 +32,7 @@ func captchaToText(path string, savedModel *tf.SavedModel, printLogs bool) strin
 	// here just for the template to run - delete me
 	nilOutput := tf.Output{}
 	if feedsOutput != nilOutput {
-		lof.Fatal(err)
+		log.Fatal(err)
 	}
 	
 	// Define the input Tensor: the string version of the CAPTCHA
