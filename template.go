@@ -19,6 +19,7 @@ func captchaToText(path string, savedModel *tf.SavedModel, printLogs bool) strin
 	if err != nil {
 		log.Fatal(err)
 	}
+	_ = captchaImage	// prevent from compile error
 
 	// This is where the action happens: run captcha through tensorflow model!
 
@@ -63,10 +64,12 @@ func captchaToText(path string, savedModel *tf.SavedModel, printLogs bool) strin
 func main() {
 	printLogs := flag.Bool("printlog", false, "set to true for printing all log lines on the screen")
 	flag.Parse()
-
+	
 	// Always make the log file run.log
 	//...
-
+	
+	_ = printLogs	// prevent from compile erroe
+	
 	// Creates a new SavedModel by loading a model previously exported to a directory on disk
 	// the tag is "serve", no special options
 
